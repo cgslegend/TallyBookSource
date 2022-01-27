@@ -24,16 +24,51 @@ const TagSection = styled.section`
     margin-top: 8px;
     padding: 2px 4px ;
   }
-`
+`;
 const NotesSection = styled.section`
-
-`
+  border: 1px solid red;
+background: #f5f5f5;
+  padding: 0 16px;
+  font-size: 14px;
+  >label{
+    display: flex;
+    align-items: center;
+    >span{ margin-right: 16px;font-size: 14px;white-space: nowrap}
+    >input{
+      color: #666;
+      border: none;
+      background: none;
+      width: 100%;height: 72px;
+      display: block
+    }
+  }
+`;
 const CategorySection = styled.section`
-
-`
+  font-size: 24px;
+>ul{
+  display: flex;
+  background: #c4c4c4;
+  >li{
+    width: 50%;
+    text-align: center;
+    padding: 16px 0;
+    position: relative;
+    &.selected::after{
+      content: '';
+      display: block;
+      height: 3px;
+      background: #333;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+`;
 const NumberPadSection = styled.section`
 
-`
+`;
 
 function Money() {
     return (
@@ -51,12 +86,12 @@ function Money() {
             <NotesSection>
                 <label>
                     <span>备注</span>
-                    <input type="text"/>
+                    <input type="text" placeholder="点击此处添加备注"/>
                 </label>
             </NotesSection>
             <CategorySection>
                 <ul>
-                    <li>支出</li>
+                    <li className="selected">支出</li>
                     <li>收入</li>
                 </ul>
             </CategorySection>

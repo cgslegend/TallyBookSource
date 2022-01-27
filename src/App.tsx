@@ -5,16 +5,20 @@ import { Outlet, HashRouter as Router,
 import Tags from "./view/tags";
 import Money from "./view/money";
 import Statistics from "./view/statistics";
+import styled from "styled-components";
 
+const Wrapper = styled.div`
+background: #f5f5f5;
+`
 
  function List() {
     return (
 
-        <div>
+        <Wrapper>
 
             <Outlet/>
 
-        </div>
+        </Wrapper>
 
     );
 }
