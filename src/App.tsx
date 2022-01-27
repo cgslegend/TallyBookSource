@@ -1,30 +1,20 @@
 import { Outlet, HashRouter as Router,
     Routes as Switch,
-    Route,
-    Link } from "react-router-dom";
-import styled from "styled-components";
-import Nav from "./components/Nav";
+    Route} from "react-router-dom";
 
-const Wapper = styled.div`
-height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-const Main = styled.div`
-flex-grow: 1;
-  overflow: auto;
-`
+import Tags from "./view/tags";
+import Money from "./view/money";
+import Statistics from "./view/statistics";
+
 
  function List() {
     return (
 
-        <Wapper>
-            <Main>
-            <Outlet />
-            </Main>
-            <Nav />
+        <div>
 
-        </Wapper>
+            <Outlet/>
+
+        </div>
 
     );
 }
@@ -49,31 +39,4 @@ export default function App(){
             </Switch>
         </div>
     </Router>)
-}
-
-
-
-
-function Money() {
-    return (
-        <div>
-            <h2>记账页</h2>
-        </div>
-    );
-}
-
-function Tags() {
-    return (
-        <div>
-            <h2>标签页</h2>
-        </div>
-    );
-}
-
-function Statistics() {
-    return (
-        <div>
-            <h2>统计页</h2>
-        </div>
-    );
 }
