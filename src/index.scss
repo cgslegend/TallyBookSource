@@ -32,3 +32,8 @@ button{
   display: block;
   clear: both;
 }
+.MyLayout{
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
