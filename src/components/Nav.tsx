@@ -24,9 +24,9 @@ box-shadow: 0 0 3px rgba(0,0,0,0.25);
         justify-content: center;
         align-items: center;
         &.active{
-          color:rgb(255,100,32);
+          color:#FF6420;
           .icon{
-            fill: rgb(255,100,32);
+            fill: #FF6420;
           }
         }
       }
