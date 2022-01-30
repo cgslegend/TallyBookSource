@@ -51,9 +51,13 @@ const Wrapper = styled.section`
     }
   }
 `;
+type Props = {
+    value:number;
+    onChange:(value:number)=>void;
+}
+const NumberPadSection:React.FC<Props> = (props) => {
 
-const NumberPadSection:React.FC = () => {
-    const [output,setOutput] = useState('0');
+    const [output,setOutput] = useState('0')
     const padTouch = (e:React.MouseEvent) =>{
         const text = (e.target as HTMLButtonElement).textContent;
         if (text === null){return}
@@ -71,26 +75,26 @@ const NumberPadSection:React.FC = () => {
                 if (output.length >=16){return;}
                 else {
                 if (output === '0') {
-                    setOutput(text);
+                    setOutput(text)
                 } else {
-                    setOutput(output + text);
+                    setOutput(output+text);
                 }
                 break;}
             case '删除' :
                 if (output.length === 1){
-                    setOutput('0');
+                    setOutput('0')
                 }else {
-                    setOutput(output.slice(0,output.length-1));
+                   setOutput(output.slice(0,output.length-1));
                 }
                 break;
             case '清空' :
                 setOutput('0')
                 break;
             case 'OK' :
-                console.log('OK')
+                props.onChange(parseFloat(output))
                 break;
             case '.':
-                if (output.indexOf('.')>0){return;}
+                if (output.indexOf('.')>0){break;}
                 else {setOutput(output+'.')}
                 break;
         }
