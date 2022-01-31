@@ -2,9 +2,9 @@ import { Outlet, HashRouter as Router,
     Routes as Switch,
     Route} from "react-router-dom";
 
-import Tags from "./view/tags";
-import Money from "./view/money";
-import Statistics from "./view/statistics";
+import Tags from "./view/Tags";
+import Money from "./view/Money";
+import Statistics from "./view/Statistics";
 import styled from "styled-components";
 
 const Wrapper = styled.div`

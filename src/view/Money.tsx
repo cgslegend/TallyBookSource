@@ -19,7 +19,6 @@ function Money() {
     return (
         <Layout>
             <div className="MyLayout">
-                {selected.amount}
                 <TagSection value = {selected.tags}
                 onChange={(tags) =>setSelected(
                     {...selected,tags: tags}
