@@ -1,5 +1,5 @@
 import { Outlet, HashRouter as Router,
-    Routes as Switch,
+    Routes ,
     Route} from "react-router-dom";
 
 import Tags from "./view/Tags";
@@ -27,8 +27,11 @@ background: #f5f5f5;
 export default function App(){
     return(<Router>
         <div>
-            <Switch>
-                <Route path="/" element={<List />}>
+
+
+            <Routes>
+                <Route  element={<List/>}>
+                    <Route path = "/" element={<Money/>}/>
                     <Route path="tags" element={<Tags/>}/>
                     <Route path="tags/*" element={<TagEditor/>}/>
                     <Route path="statistics" element={<Statistics/>} />
@@ -42,7 +45,9 @@ export default function App(){
                         }
                     />
                 </Route>
-            </Switch>
+
+            </Routes>
+
         </div>
     </Router>)
 }
