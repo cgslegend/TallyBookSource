@@ -9,7 +9,7 @@ const Label = styled.label`
       color: #666;
       border: none;
       background: none;
-      width: 100%;height: 72px;
+      width: 100%;height: 44px;
       display: block
     }
   
