@@ -10,24 +10,25 @@ import {Center} from "../components/Center";
 import {Space} from "../components/Space";
 
 
-type Params ={id:string}
+type Params = { id: string }
 const Topbar = styled.header`
-display: flex;
+  display: flex;
   justify-content: space-between;
   line-height: 20px;
   padding: 14px;
   background: #ffffff;
 `
 const InputWrapper = styled.div`
-background: #ffffff;
-  
-`
-const TagEditor:React.FC = (props) => {
-    const {findTag} = useTags()
-    let {id} = useParams<Params>();
-    const tag = findTag(parseInt(id as string));
+  background: #ffffff;
+  padding: 0 14px;
 
-    return(
+`
+const TagEditor: React.FC = (props) => {
+    const {findTag, updateTag} = useTags()
+    let {id:idString} = useParams<Params>();
+    const tag = findTag(parseInt(idString as string));
+
+    return (
         <Layout>
             <Topbar>
                 <Icon name="left"/>
@@ -37,8 +38,11 @@ const TagEditor:React.FC = (props) => {
             <Space/>
             <div>
                 <InputWrapper>
-                    <Input label = "标签名" type="text" placeholder="此处输入标签名"
-                    value={tag.name}/>
+                    <Input label="标签名" type="text" placeholder="此处输入标签名"
+                           value={tag.name}
+                           onChange={(e) => {
+                               updateTag(tag.id, {name: e.target.value})
+                           }}/>
                 </InputWrapper>
             </div>
 

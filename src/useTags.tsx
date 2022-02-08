@@ -11,7 +11,24 @@ const defaultTags = [
 const useTags = () =>{
     const [tags,setTags] = useState<{ id: number;name: string}[]>(defaultTags);
     const findTag = (id:number) => tags.filter(tag=>tag.id===id)[0]
-    return {tags, setTags,findTag};
-
+    const findTagIndex = (id:number) => {
+      let result = -1;
+      for (let i = 0;i<tags.length;i++){
+          if (tags[i].id === id){
+              result = i;
+              break;
+          }
+      }
+      return result;
+    }
+    const updateTag = (id:number,obj:{name:string}) => {
+      const index = findTagIndex(id);
+        //深拷贝 tags
+      const tagClone = JSON.parse(JSON.stringify(tags))
+        //将 tagClone 的第 index 个替换成 {id:id,name:obj.name}
+        tagClone.splice(index,1,{id:id,name:obj.name})
+        setTags(tagClone)
+    }
+    return {tags, setTags,findTag,updateTag,findTagIndex};
 }
 export {useTags}
