@@ -1,6 +1,6 @@
 import React from "react";
 import {useTags} from "../useTags";
-import {useParams} from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 import Layout from "../components/Layout";
 import Icon from "../components/Icon";
 import {Button} from "../components/Button";
@@ -23,32 +23,32 @@ const InputWrapper = styled.div`
   padding: 0 14px;
 
 `
-const TagEditor: React.FC = (props) => {
-    const {findTag, updateTag} = useTags()
+const TagEditor: React.FC = () => {
+    const {findTag, updateTag,deleteTag} = useTags()
     let {id:idString} = useParams<Params>();
     const tag = findTag(parseInt(idString as string));
 
     return (
         <Layout>
             <Topbar>
-                <Icon name="left"/>
+                <NavLink to="/tags"><Icon name="left"/></NavLink>
                 <span>编辑标签</span>
                 <Icon/>
             </Topbar>
             <Space/>
-            <div>
-                <InputWrapper>
-                    <Input label="标签名" type="text" placeholder="此处输入标签名"
-                           value={tag.name}
-                           onChange={(e) => {
-                               updateTag(tag.id, {name: e.target.value})
-                           }}/>
-                </InputWrapper>
-            </div>
-
-            <Center>
-                <Button>删除标签</Button>
-            </Center>
+            {tag ?<div>
+                    <InputWrapper>
+                        <Input label="标签名" type="text" placeholder="此处输入标签名"
+                               value={tag.name}
+                               onChange={(e) => {
+                                   updateTag(tag.id, {name: e.target.value})
+                               }}/>
+                    </InputWrapper>
+                <Center>
+                    <Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
+                </Center>
+                </div> : <Center>标签已删除</Center>
+                }
         </Layout>
     )
 }
