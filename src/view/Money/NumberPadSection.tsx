@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const Wrapper = styled.section`
   display: flex;
@@ -54,6 +54,7 @@ const Wrapper = styled.section`
 type Props = {
     value:number;
     onChange:(value:number)=>void;
+    onOK?:()=>void;
 }
 const NumberPadSection:React.FC<Props> = (props) => {
 
@@ -75,11 +76,11 @@ const NumberPadSection:React.FC<Props> = (props) => {
                 if (output.length >=16){return;}
                 else {
                 if (output === '0') {
-                    setOutput(text)
+                    setOutput(text);
                 } else {
                     setOutput(output+text);
                 }
-                break;}
+                    break;}
             case '删除' :
                 if (output.length === 1){
                     setOutput('0')
@@ -91,16 +92,23 @@ const NumberPadSection:React.FC<Props> = (props) => {
                 setOutput('0')
                 break;
             case 'OK' :
-                props.onChange(parseFloat(output))
+                //props.onChange(parseFloat(output))
+                if (props.onOK){
+                    props.onOK();
+                    setOutput('0')
+                    }
                 break;
             case '.':
                 if (output.indexOf('.')>0){break;}
-                else {setOutput(output+'.')}
+                else {setOutput(output+'.');}
                 break;
         }
     }
+    useEffect(()=>{
+        props.onChange(parseFloat(output))
+    },[output])
     return(
-        <Wrapper>
+        <Wrapper >
             <div className="outputNum">{output}</div>
             <div className="pad clearfix" onClick={padTouch}>
                 <button>1</button>
