@@ -9,7 +9,7 @@ type newRecordItem = {
     category: '+'|'-'
     amount:number
 };
-type RecordItem = newRecordItem&{
+export type RecordItem = newRecordItem&{
     createdAt:string
 }
 
