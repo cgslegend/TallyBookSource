@@ -5,15 +5,11 @@ const Wrapper = styled.section`
   font-size: 24px;
 >ul{
   display: flex;
-  background: #c4c4c4;
   >li{
     width: 50%;
     text-align: center;
     padding: 16px 0;
     position: relative;
-    &.selected{
-      background: #b9b9b9 ;
-    }
     &.selected::after{
       content: '';
       display: block;
