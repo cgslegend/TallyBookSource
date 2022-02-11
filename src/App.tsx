@@ -7,6 +7,7 @@ import Money from "./view/Money";
 import Statistics from "./view/Statistics";
 import styled from "styled-components";
 import {TagEditor} from "./view/TagEditor";
+import {Welcome} from "./view/Welcom";
 
 const Wrapper = styled.div`
 
@@ -32,7 +33,7 @@ export default function App(){
 
             <Routes>
                 <Route  element={<List/>}>
-                    <Route path = "/" element={<Money/>}/>
+                    <Route path = "/" element={<Welcome/>}/>
                     <Route path="tags"  element={<Tags/>}/>
                     <Route path="tags/:id" element={<TagEditor/>}/>
                     <Route path="statistics" element={<Statistics/>} />
