@@ -1,6 +1,7 @@
 {
-  "name": "wangcai",
+  "name": "tollybook",
   "version": "0.1.0",
+  "homepage": "https://cgslegend.github.io/TallyBook/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
