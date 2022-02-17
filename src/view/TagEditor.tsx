@@ -24,8 +24,8 @@ const InputWrapper = styled.div`
 
 `
 const TagEditor: React.FC = () => {
-    const {findTag, updateTag,deleteTag} = useTags()
-    let {id:idString} = useParams<Params>();
+    const {findTag, updateTag, deleteTag} = useTags()
+    let {id: idString} = useParams<Params>();
     const tag = findTag(parseInt(idString as string));
 
     return (
@@ -36,19 +36,21 @@ const TagEditor: React.FC = () => {
                 <Icon/>
             </Topbar>
             <Space/>
-            {tag ?<div>
-                    <InputWrapper>
-                        <Input label="标签名" type="text" placeholder="此处输入标签名"
-                               value={tag.name}
-                               onChange={(e) => {
-                                   updateTag(tag.id, {name: e.target.value})
-                               }}/>
-                    </InputWrapper>
+            {tag ? <div>
+                <InputWrapper>
+                    <Input label="标签名" type="text" placeholder="此处输入标签名"
+                           value={tag.name}
+                           onChange={(e) => {
+                               updateTag(tag.id, {name: e.target.value})
+                           }}/>
+                </InputWrapper>
                 <Center>
-                    <Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
+                    <Button onClick={() => {
+                        deleteTag(tag.id)
+                    }}>删除标签</Button>
                 </Center>
-                </div> : <Center>标签已删除</Center>
-                }
+            </div> : <Center>标签已删除</Center>
+            }
         </Layout>
     )
 }

@@ -8,14 +8,14 @@ background: #f5f5f5;
   font-size: 14px;
   
 `;
-type Props = { value:string;onChange:(value:string)=>void };
-const NoteSection :React.FC<Props> = (props) => {
+type Props = { value: string; onChange: (value: string) => void };
+const NoteSection: React.FC<Props> = (props) => {
     const note = props.value;
-    const onChange :ChangeEventHandler<HTMLInputElement> = (e)=>{
+    const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         props.onChange(e.target.value)
     };
 
-    return(
+    return (
         <Wrapper>
             <Input label="备注" type="text" value={note} onChange={onChange}
                    placeholder="此处输入备注"/>

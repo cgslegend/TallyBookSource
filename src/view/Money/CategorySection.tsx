@@ -24,22 +24,24 @@ const Wrapper = styled.section`
 }
 `;
 type Props = {
-    value:'-'|'+';
-    onChange:(value:'-'|'+')=>void;
+    value: '-' | '+';
+    onChange: (value: '-' | '+') => void;
 }
-const CategorySection :React.FC<Props> = (props) => {
-    const categoryMap = {'-':'支出','+':'收入'};
+const CategorySection: React.FC<Props> = (props) => {
+    const categoryMap = {'-': '支出', '+': '收入'};
     type CateKey = keyof typeof categoryMap;
-    const [categoryList] = useState<CateKey[]>(['-','+']);
+    const [categoryList] = useState<CateKey[]>(['-', '+']);
     const category = props.value;
-    return(
+    return (
         <Wrapper>
             <ul>
                 {categoryList.map(c =>
-                <li key={c} className={category === c ? 'selected' : ''}
-                onClick={()=>{props.onChange(c);}}>
-                    {categoryMap[c]}
-                </li>)}
+                    <li key={c} className={category === c ? 'selected' : ''}
+                        onClick={() => {
+                            props.onChange(c);
+                        }}>
+                        {categoryMap[c]}
+                    </li>)}
             </ul>
         </Wrapper>
     )

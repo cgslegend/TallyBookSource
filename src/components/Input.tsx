@@ -16,11 +16,11 @@ const Label = styled.label`
 `
 
 type Props = {
-    label:string;
-}&React.InputHTMLAttributes<HTMLInputElement>;
-const Input:React.FC <Props>= (props)=> {
-const {label,children,...rest} = props;
-    return  (
+    label: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
+const Input: React.FC<Props> = (props) => {
+    const {label, children, ...rest} = props;
+    return (
         <Label>
             <span>备注</span>
             <input {...rest}/>

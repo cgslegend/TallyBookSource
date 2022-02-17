@@ -52,16 +52,18 @@ const Wrapper = styled.section`
   }
 `;
 type Props = {
-    value:number;
-    onChange:(value:number)=>void;
-    onOK?:()=>void;
+    value: number;
+    onChange: (value: number) => void;
+    onOK?: () => void;
 }
-const NumberPadSection:React.FC<Props> = (props) => {
+const NumberPadSection: React.FC<Props> = (props) => {
 
-    const [output,setOutput] = useState('0')
-    const padTouch = (e:React.MouseEvent) =>{
+    const [output, setOutput] = useState('0')
+    const padTouch = (e: React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent;
-        if (text === null){return}
+        if (text === null) {
+            return
+        }
         switch (text) {
             case '0':
             case '1':
@@ -73,19 +75,21 @@ const NumberPadSection:React.FC<Props> = (props) => {
             case '7':
             case '8':
             case '9':
-                if (output.length >=16){return;}
-                else {
-                if (output === '0') {
-                    setOutput(text);
+                if (output.length >= 16) {
+                    return;
                 } else {
-                    setOutput(output+text);
+                    if (output === '0') {
+                        setOutput(text);
+                    } else {
+                        setOutput(output + text);
+                    }
+                    break;
                 }
-                    break;}
             case '删除' :
-                if (output.length === 1){
+                if (output.length === 1) {
                     setOutput('0')
-                }else {
-                   setOutput(output.slice(0,output.length-1));
+                } else {
+                    setOutput(output.slice(0, output.length - 1));
                 }
                 break;
             case '清空' :
@@ -93,22 +97,25 @@ const NumberPadSection:React.FC<Props> = (props) => {
                 break;
             case 'OK' :
                 //props.onChange(parseFloat(output))
-                if (props.onOK){
+                if (props.onOK) {
                     props.onOK();
                     setOutput('0')
-                    }
+                }
                 break;
             case '.':
-                if (output.indexOf('.')>0){break;}
-                else {setOutput(output+'.');}
+                if (output.indexOf('.') > 0) {
+                    break;
+                } else {
+                    setOutput(output + '.');
+                }
                 break;
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         props.onChange(parseFloat(output))
-    },[output])
-    return(
-        <Wrapper >
+    }, [output])
+    return (
+        <Wrapper>
             <div className="outputNum">{output}</div>
             <div className="pad clearfix" onClick={padTouch}>
                 <button>1</button>

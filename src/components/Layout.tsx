@@ -13,13 +13,13 @@ flex-grow: 1;
 `
 
 
-const Layout = (props:any) =>{
-    return(
+const Layout = (props: any) => {
+    return (
         <Wrapper>
             <Main>
                 {props.children}
             </Main>
-            <Nav />
+            <Nav/>
         </Wrapper>
     )
 };

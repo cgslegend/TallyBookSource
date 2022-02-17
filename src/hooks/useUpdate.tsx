@@ -1,14 +1,14 @@
 import {useEffect, useRef} from "react";
 
-const useUpdate = (fn:()=>void,deps:any[])=>{
+const useUpdate = (fn: () => void, deps: any[]) => {
     const count = useRef(0);
-    useEffect(()=>{
+    useEffect(() => {
         count.current += 1;
     })
-    useEffect(()=>{
-        if (count.current >1) {
-           fn()
+    useEffect(() => {
+        if (count.current > 1) {
+            fn()
         }
-    },deps)
+    }, deps)
 }
 export {useUpdate}

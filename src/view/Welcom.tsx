@@ -25,7 +25,7 @@ const Page = styled.div`
 
 const Welcome = () => {
 
-    return(
+    return (
         <Page>
             <div>个人记账工具</div>
             <NavLink to="/money">开始使用</NavLink>

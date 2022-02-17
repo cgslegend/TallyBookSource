@@ -35,24 +35,25 @@ box-shadow: 0 0 3px rgba(0,0,0,0.25);
   line-height: 24px;
 `
 
-const Nav = () =>{
-    return(
-    <NavWrapper>
-    <ul>
-    <li>
+const Nav = () => {
+    return (
+        <NavWrapper>
+            <ul>
+                <li>
 
-    <NavLink to="/tags" className={({ isActive }) => (isActive ? 'active' : 'inactive')}><Icon name="tags" />标签页</NavLink>
-</li>
-    <li>
+                    <NavLink to="/tags" className={({isActive}) => (isActive ? 'active' : 'inactive')}><Icon
+                        name="tags"/>标签页</NavLink>
+                </li>
+                <li>
 
-        <NavLink to="/money"> <Icon name="money" />记账页</NavLink>
-    </li>
-    <li>
+                    <NavLink to="/money"> <Icon name="money"/>记账页</NavLink>
+                </li>
+                <li>
 
-        <NavLink to="/statistics"><Icon name="statistics" />统计页</NavLink>
-    </li>
-</ul>
-</NavWrapper>
+                    <NavLink to="/statistics"><Icon name="statistics"/>统计页</NavLink>
+                </li>
+            </ul>
+        </NavWrapper>
     )
 }
 export default Nav;

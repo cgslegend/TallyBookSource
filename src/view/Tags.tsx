@@ -2,9 +2,9 @@ import Layout from "../components/Layout";
 import {useTags} from "hooks/useTags";
 import styled from "styled-components";
 import Icon from "../components/Icon";
-import { Link } from "react-router-dom";
-import { Button } from "components/Button";
-import { Center } from "components/Center";
+import {Link} from "react-router-dom";
+import {Button} from "components/Button";
+import {Center} from "components/Center";
 
 const TagList = styled.ol`
   font-size: 16px;
@@ -24,17 +24,17 @@ const TagList = styled.ol`
 
 
 function Tags() {
-    const {tags,addTag} = useTags();
+    const {tags, addTag} = useTags();
     return (
         <Layout>
             <TagList>
-                {tags.map(tag=>
-                <li key={tag.id}>
-                    <Link to = {'/tags/'+tag.id}>
-                    <span>{tag.name}</span>
-                    <Icon name="right"/>
-                    </Link>
-                </li>)}
+                {tags.map(tag =>
+                    <li key={tag.id}>
+                        <Link to={'/tags/' + tag.id}>
+                            <span>{tag.name}</span>
+                            <Icon name="right"/>
+                        </Link>
+                    </li>)}
             </TagList>
             <Center>
                 <Button onClick={addTag}>新增标签</Button>
@@ -42,4 +42,5 @@ function Tags() {
         </Layout>
     );
 }
+
 export default Tags;
