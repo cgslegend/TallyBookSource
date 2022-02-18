@@ -6,5 +6,6 @@ git init &&
 git add . &&
 git commit -m "deploy"
 git remote add origin git@github.com:cgslegend/TallyBook.git &&
+git branch -M main &&
 git push -u origin master -f
 cd -
