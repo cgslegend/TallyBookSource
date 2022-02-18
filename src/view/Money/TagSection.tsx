@@ -8,8 +8,9 @@ const Wrapper = styled.section`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   min-height: 240px;
+  justify-content: flex-end;
 >ol{
   margin: 0 -12px;
   >li{
