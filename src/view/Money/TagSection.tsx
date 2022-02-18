@@ -9,7 +9,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-end;
+  min-height: 240px;
 >ol{
   margin: 0 -12px;
   >li{
